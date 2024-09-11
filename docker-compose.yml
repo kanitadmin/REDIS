@@ -1,5 +1,4 @@
 version: '3.8'
-
 services:
   redis:
     image: redis:latest
@@ -15,6 +14,8 @@ services:
     volumes:
       - redis_data:/data
     restart: unless-stopped
-
+networks:
+  default:
+    name: redis-network
 volumes:
   redis_data:
