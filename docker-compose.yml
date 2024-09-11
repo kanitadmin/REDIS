@@ -8,10 +8,10 @@ services:
       - "6379:6379"
     environment:
       - TZ=Asia/Bangkok
-      - REDIS_PASSWORD=your_redis_password  # ตั้งค่ารหัสผ่าน
-      - REDIS_LOGLEVEL=verbose  # กำหนดระดับการแสดง log
-      - REDIS_MAXMEMORY=256mb  # กำหนดขนาดหน่วยความจำสูงสุดที่ Redis จะใช้
-      - REDIS_MAXMEMORY_POLICY=allkeys-lru  # กำหนด policy การลบข้อมูลเมื่อถึงหน่วยความจำสูงสุด
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - REDIS_LOGLEVEL=verbose
+      - REDIS_MAXMEMORY=${REDIS_MAXMEMORY}
+      - REDIS_MAXMEMORY_POLICY=allkeys-lru
     volumes:
       - redis_data:/data
     restart: unless-stopped
